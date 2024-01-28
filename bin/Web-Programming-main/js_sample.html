@@ -1,0 +1,22 @@
+<html>
+	<body>
+		<script type="text/javascript">
+			function print()
+			{
+				var f=document.getElementById("frst").value;
+				var l=document.getElementById("last").value;
+				document.write("my name is "+f+"  "+l);
+			}
+			function dlte()
+			{
+				var d=document.getElementById("f").reset();
+			}
+		</script>
+	</body>
+	<form id="f">
+				<label>FIRST NAME:</label><input type="text" id="frst"/><br><br>
+				<label>LAST NAME:</label><input type="text" id="last"/><br><br>
+				<input type="button" value="DISPLAY" onclick="print()"/>
+				<input type="button" value="REFRESH" onclick="dlte()"/>
+	</form>
+</html>

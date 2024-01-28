@@ -1,0 +1,21 @@
+h2{
+	background-color:white;
+	color : rgb(255,0,0);
+}
+     table
+		     {
+		     	text-align:center;
+		     	background-color:hotpink;
+		     }
+		     table:hover
+		     {
+		     }
+		     td:hover
+		     {
+		     	background-color:green;
+		         font-size:30px;
+		     }
+		     tr:nth-child(even)
+		     {
+		     	background-color:white;
+		     }

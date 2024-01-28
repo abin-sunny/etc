@@ -1,0 +1,48 @@
+<html>
+
+<body>
+    <center>
+        <h1>D & D BOYS</h1>
+        <form name="f1" method="post">
+            ID:<input type="number" name="id" id="id"> <br><br>&nbsp;
+            NAME:<input type="text" name="name" id="name"><br><br>&nbsp;
+            PLACE:<input type="text" name="place" id="place"><br><br>&nbsp;
+            <input type="submit" name="submit" value="submit" id="submit"><br><br>&nbsp;
+            <input type="submit" name="show" value="show" id="show"><br><br>&nbsp;
+        </form>
+    </center>
+</body>
+
+</html>
+
+<?php
+$conn = new mysqli("localhost", "root", "");
+$create = "create database IF NOT EXISTS d";
+$a = $conn->query($create);
+$conn->close();
+$conn = new mysqli("localhost", "root", "", "d");
+$tbl = "CREATE TABLE IF NOT EXISTS boys(
+    b_id INT(2) PRIMARY KEY ,
+    b_name VARCHAR(15) NOT NULL,
+    b_place VARCHAR(15) NOT NULL
+    )";
+$a = $conn->query($tbl);
+if (isset($_POST['show'])) {
+    $q = "select * from boys";
+    $result = $conn->query($q);
+    while ($product = $result->fetch_assoc()) {
+        echo $product['b_id'] . '&nbsp;&nbsp;';
+        echo $product['b_name'] . '&nbsp;&nbsp;';
+        echo $product['b_place'] . "<br>";
+    }
+}
+if (isset($_POST["submit"])) {
+    $id = $_POST["id"];
+    $name = $_POST["name"];
+    $place = $_POST["place"];
+    $a = "INSERT INTO boys values ('$id','$name','$place')";
+    if ($conn->query($a) === TRUE) {
+        echo "inserted";
+    }
+}
+?>
